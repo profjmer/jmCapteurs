@@ -2,7 +2,7 @@
 
 jmCapteurs est un petit objet intelligent connecté ayant des capteurs et pouvant publier leurs valeurs de différentes façons.
 
-![](./img/IMG_0323.jpg)
+![](./img/img_0323.png)
 
 C'est un module Wemos D1 mini auquel différents capteurs sont reliés. Un afficheur OLED SSD1306 peut également y être raccordé.
 
@@ -52,11 +52,11 @@ Voici les capteurs pouvant être reliés à l'objet.
 
 ### ​ADC - jauge
 
-![](./img/adc.png)
+![](./img/volts.png)
 
 ### ​ADC - Graphe
 
-![](./img/adc-h.png)
+![](./img/volts-h.png)
 
 
 ### ​DHT22 - Jauges
@@ -74,7 +74,7 @@ Voici les capteurs pouvant être reliés à l'objet.
 
 ### BME280 - ​Graphe 
 
-![](./img/bme280-h.png)
+![](./img/bme-h.png)
 
 ### ​DS1820 - Jauges
 
@@ -82,7 +82,7 @@ Voici les capteurs pouvant être reliés à l'objet.
 
 ### ​DS1820 - Graphe
 
-![](./img/ds1820-h.png)
+![](./img/ds182-h.png)
 
 
 ## ​Page ILC
