@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+	    <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="volts.png">
+		<title>Volts</title>
+		<link href="bootstrap.css" rel="stylesheet">
+		<script src="gauge.min.js"></script>
+		<script src="volts.js"></script>
+		<style>
+			canvas {
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+			}
+		</style>
+		<style type="text/css">
+			body { background-color:rgb(8, 8, 8); }
+		</style>
+	</head>
+
+	<body>
+		<div class="container" >
+      <div class="header">
+	   	 	<nav>
+          <ul class="nav nav-pills">
+            <li role="presentation"><a href="/">Réseaux</a></li>
+						<li role="presentation" ><a href="/commands.html">ILC</a></li> 
+						<li role="presentation"><a href="/bme280jauges.html">BME280</a></li>				
+						<li role="presentation"><a href="/dht22.html">DHT22</a></li>		
+						<li role="presentation"><a href="/ds1820.html">DS1820</a></li>								   
+						<li role="presentation" class="active"><a href="/volts.html">Volts</a></li>
+						<li role="presentation"><a href="/voltshisto.html">Volts GRAPHE</a></li>							
+          </ul>
+				</nav>  
+      </div>
+			<br>
+			<center>
+				<p id ="time" style = "color:lightgrey" >TimeStamp<p>
+				<br>	<br>	
+				<div >
+					<canvas id="jauge-volts" data-type="radial-gauge"
+								data-width="250"
+								data-height="250"
+								data-value-int="1"
+								data-value-dec="1"
+								data-units="Volts"
+								data-title="Alim"
+								data-min-value="0"
+								data-max-value="16"
+								data-major-ticks="[0,2,4,6,8,10,12,14,16]"
+								data-minor-ticks="1"
+								data-stroke-ticks="true"
+								data-highlights='[
+														{"from": 0, "to": 3, "color": "rgba(255,0, 0, 1)"},
+														{"from": 3.01, "to": 3.99, "color": "rgba(255, 255, 0, 1)"},
+														{"from": 4, "to": 16, "color": "rgba(0, 255, 0, 0.5)"}
+												]'
+								data-ticks-angle="225"
+								data-start-angle="67.5"
+								data-color-major-ticks="#ddd"
+								data-color-minor-ticks="#ddd"
+								data-color-title="#eee"
+								data-color-units="#ccc"
+								data-color-numbers="#eee"
+								data-color-plate="#222"
+								data-border-shadow-width="0"
+								data-borders="true"
+								data-needle-type="arrow"
+								data-needle-width="2"
+								data-needle-circle-size="7"
+								data-needle-circle-outer="true"
+								data-needle-circle-inner="false"
+								data-animation-duration="300"
+								data-animation-rule="linear"
+								data-color-border-outer="#333"
+								data-color-border-outer-end="#111"
+								data-color-border-middle="#222"
+								data-color-border-middle-end="#111"
+								data-color-border-inner="#111"
+								data-color-border-inner-end="#333"
+								data-color-needle-shadow-down="#333"
+								data-color-needle-circle-outer="#333"
+								data-color-needle-circle-outer-end="#111"
+								data-color-needle-circle-inner="#111"
+								data-color-needle-circle-inner-end="#222"
+								data-value-box-border-radius="0"
+								data-color-value-box-rect="#222"
+								data-color-value-box-rect-end="#333"
+								data-font-value="Led"
+								data-font-numbers="Led"
+								data-font-title="Led"
+								data-font-units="Led"
+					></canvas>
+				</div>	
+				<footer>
+					<p>&copy; profjmer@gmail.com 2021</p>
+				</footer>
+			</center>
+		</div> 	
+		<script>	setupWebsocket();		</script>
+	</body>
+</html>
+

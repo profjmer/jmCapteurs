@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="jmObjean-esp8266">
+    <meta name="author" content="profjmer@gmail.com">
+    <link rel="icon" href="reseau.png">
+
+    <title>jmCapteurs_D1</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.css" rel="stylesheet">
+	    <!-- <link href="style.css" rel="stylesheet"> -->
+
+    <script src="reseaux.js"></script>
+	<script async> window.onload = startWebsocket; </script>
+	<style>
+		body {
+			color:#999;
+			background-color:black;
+			text-align:center
+		}
+		.connect-btn{
+			float: left;
+		}
+
+		.connect-btn-wrapper{
+			margin-top: 10px;
+			height: 34px
+		}
+
+		.reload-btn-wrapper{
+			margin-bottom: 10px;
+		}
+
+		.wifi{
+			background: url(/wifi-sprites.png) no-repeat;
+			float: left;
+			margin-right: 10px;
+		}
+
+		.wifi-4{
+			background-position: 0 0;
+			width: 64px;
+			height: 64px;
+		}
+
+		.wifi-3{
+			background-position: -64px 0;
+			width: 64px;
+			height: 64px;
+		}
+
+		.wifi-2{
+			background-position: -128px 0;
+			width: 64px;
+			height: 64px;
+		}
+
+		.wifi-1{
+			background-position: -192px 0;
+			width: 64px;
+			height: 64px;
+		}
+		
+		.list-group{
+		text-align: left
+		}
+	</style>
+  </head>
+
+  <body >
+  <div class="container" >
+      <div class="header">
+          <nav>
+                <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href="/">Réseaux</a></li>
+                    <li role="presentation"><a href="/commands.html">ILC</a></li>       
+										<li role="presentation"><a href="/bme280jauges.html">BME280</a></li>				
+										<li role="presentation"><a href="/dht22.html">DHT22</a></li>		
+										<li role="presentation"><a href="/ds1820.html">DS1820</a></li>		
+                    <li role="presentation"><a href="/volts.html">Volts</a></li>																																			            
+                </ul>
+          </nav>
+      </div>
+<br><br>
+      <div class="jumbotron" style = "background-color:#226;color:#bbb;">
+          <h3>Recherche réseaux WiFi</h3>
+      </div>
+	  
+	  <div>
+			<button class="btn btn-primary" id = "recherche" onclick = "SSID();">Rechercher</button>
+	  </div>
+
+      <div class="row" >
+          <div class="col-sm-6 col-sm-offset-3">
+					<h3>Résultats</h3>
+					<div id = "info"></div>
+					<br>
+					<div id ="ssid">
+					  <div class = "list-group" id="list-ssid">
+					  </div>
+					</div>
+          </div>
+      </div>  
+
+      <footer >
+          <p>&copy; profjmer@gmail.com 2021</p>
+      </footer>
+
+    </div> <!-- /container -->
+  </body>
+</html>

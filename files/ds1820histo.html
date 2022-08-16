@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+	    <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="chart.png">
+		<title>Historique DS1820</title>
+		<link href="bootstrap.css" rel="stylesheet">
+		<script src="utils.js"></script>				
+		<script src="Chart.bundle.min.js"></script>
+		<script src="ds1820histo.js"></script>
+		<script>window.onload = setupWebsocket</script>
+		<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		</style>
+	<style type="text/css">
+		body { background-color:rgb(0, 0, 0); }
+	</style>
+	</head>
+
+	<body>
+	   	 <nav>
+          <ul class="nav nav-pills pull-left">  
+			<li role="presentation"><a href="/">Réseaux</a></li>
+            <li role="presentation"><a href="/commands.html">ILC</a></li>   
+            <li role="presentation"><a href="/bme280jauges.html">BME280</a></li>				
+            <li role="presentation"><a href="/dht22.html">DHT22</a></li>		
+						<li role="presentation"><a href="/ds1820.html">DS1820</a></li>		
+						<li role="presentation" class="active"><a href="/ds1820histo.html">DS1820 GRAPHE</a></li>							            
+            <li role="presentation"><a href="/volts.html">Volts</a></li>	            			
+          </ul>
+        </nav>  
+
+		<div style="width:90%;">
+			<canvas id="canvas"></canvas>
+		</div>
+
+		<script> 
+			var lineChartData = {
+				datasets: [						{
+						label: 'T1',
+						borderColor: window.chartColors.red,
+						backgroundColor: window.chartColors.red,
+						fill: false,
+						//data: [],
+						yAxisID: 'y-axis-1',
+					},	{
+						label: 'T2',
+						borderColor: window.chartColors.blue,
+						backgroundColor: window.chartColors.blue,
+						fill: false,
+						//data: [],
+						yAxisID: 'y-axis-2',
+					},{
+						label: 'T3',
+						borderColor: window.chartColors.yellow,
+						backgroundColor: window.chartColors.yellow,
+						fill: false,
+						//data: [],
+						yAxisID: 'y-axis-3',
+					},	{
+						label: 'T4',
+						borderColor: window.chartColors.green,
+						backgroundColor: window.chartColors.green,
+						fill: false,
+						//data: [],
+						yAxisID: 'y-axis-4',
+					}	
+				]
+			};
+
+			// créer le graphe dans la page
+
+			var ctx = document.getElementById('canvas').getContext('2d');
+			window.myLine = Chart.Line(ctx, {
+				data: lineChartData,
+				options: {
+					responsive: true,
+					hoverMode: 'index',
+					stacked: false,
+					title: {
+						display: true,
+						text: 'Capteurs DS1820'
+					},
+					scales: {
+							xAxes: [{
+							type: 'time',
+							time: {
+                    			displayFormats: {
+									second: 'HH:mm:ss',
+									minute: 'HH:mm',
+									hour: 'HH'
+								}
+							},
+							display: true,
+							scaleLabel: {
+								display: false,
+								labelString: 'Historique'
+							},
+							ticks: {
+								major: {
+									fontStyle: 'bold',
+									fontColor: '#FFFFFF'
+								}
+							}
+						}],
+						yAxes: [{
+								type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+								display: true,
+								position: 'right',
+								id: 'y-axis-1',
+								ticks: {
+									fontColor: "red",
+									min: 0,
+									max: 40
+								}
+							},	{
+								type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+								display: true,
+								position: 'right',
+								id: 'y-axis-2',
+								ticks: {
+									fontColor: "blue",
+									min: -50,
+									max: 150									
+								}
+							},	{
+								type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+								display: true,
+								position: 'right',
+								id: 'y-axis-3',
+								ticks: {
+									fontColor: "yellow",
+									min: -10,
+									max: 30									
+								}
+							},	{
+								type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+								display: true,
+								position: 'right',
+								id: 'y-axis-4',
+								ticks: {
+									fontColor: "green",							
+								}
+							}
+						]
+					}
+				}
+			});		
+		
+		</script>		
+	</body>
+</html>
+

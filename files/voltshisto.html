@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+	    <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="chart.png">
+		<title>Historique Volts</title>
+		<link href="bootstrap.css" rel="stylesheet">
+		<script src="utils.js"></script>				
+		<script src="Chart.bundle.min.js"></script>
+		<script src="voltshisto.js"></script>
+		<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		</style>
+	<style type="text/css">
+		body { background-color:rgb(0, 0, 0); }
+	</style>
+	</head>
+
+	<body>
+	   	 <nav>
+          <ul class="nav nav-pills pull-left">  
+			<li role="presentation"><a href="/">Réseaux</a></li>
+			<li role="presentation"><a href="/commands.html">ILC</a></li>   
+			<li role="presentation"><a href="/bme280jauges.html">BME280</a></li>				
+			<li role="presentation"><a href="/dht22.html">DHT22</a></li>		
+			<li role="presentation"><a href="/ds1820.html">DS1820</a></li>			
+			<li role="presentation"><a href="/volts.html">Volts</a></li>  
+			<li role="presentation" class="active"><a href="/voltshisto.html">Volts GRAPHE</a></li>				
+          </ul>
+        </nav>  
+
+		<div style="width:90%;">
+			<canvas id="canvas"></canvas>
+		</div>
+
+		<script> 
+			var lineChartData = {
+				datasets: [{
+					label: 'Volts',
+					borderColor: window.chartColors.green,
+					backgroundColor: window.chartColors.green,
+					fill: true,
+					//data: [],
+					yAxisID: 'y-axis-1',
+				}]
+			};
+
+			// créer le graphe dans la page
+
+			var ctx = document.getElementById('canvas').getContext('2d');
+			window.myLine = Chart.Line(ctx, {
+				data: lineChartData,
+				options: {
+					responsive: true,
+					hoverMode: 'index',
+					stacked: false,
+					title: {
+						display: true,
+						text: 'Alim'
+					},
+					scales: {
+							xAxes: [{
+							type: 'time',
+							time: {
+                    			displayFormats: {
+  									millisecond: 'HH:mm:ss.SSS',
+									second: 'HH:mm:ss',
+									minute: 'HH:mm',
+									hour: 'HH'
+								}
+							},
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'Historique'
+							},
+							ticks: {
+								major: {
+									fontStyle: 'bold',
+									fontColor: '#FF0000'
+								}
+							}
+						}],
+						yAxes: [
+							{
+								type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+								display: true,
+								position: 'right',
+								id: 'y-axis-1',
+								ticks: {
+									fontColor: "green",
+									min: 0,
+									max: 16
+								}
+							}
+						],
+					}
+				}
+			});		
+		
+		</script>		
+		<script>	setupWebsocket();		</script>
+	</body>
+</html>
+

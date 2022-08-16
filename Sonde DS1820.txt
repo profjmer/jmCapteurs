@@ -1,0 +1,1 @@
+Le point blanc de la sonde ds1820 représente le fils data du OneWire et va sur le pad carré.

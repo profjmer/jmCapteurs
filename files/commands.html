@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>ILC</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="jmer">
+		<link href="bootstrap.css" rel="stylesheet">
+		<link rel="icon" href="jmrd32x32.ico">
+		<script src="commands.js"></script>
+		<!-- I'm an HTML comment! -->
+		<script>window.onload = startWebsocket</script>
+		<style type="text/css">
+			body {  background-color:black;	color:#444444;  text-align: center}
+			text {  color:aquamarine }
+			h3 { color:aqua}
+			h4 { color:lightslategray}
+		</style>
+	</head>
+
+<body>
+	<div class="container" >
+		<div class="header">
+	   	 	<nav>
+				<ul class="nav nav-pills pull-left">
+					<li role="presentation"><a href="/">Réseaux</a></li>
+					<li role="presentation" class="active"><a href="/commands.html">ILC</a></li>    
+					<li role="presentation"><a href="/bme280jauges.html">BME280</a></li>				
+					<li role="presentation"><a href="/dht22.html">DHT22</a></li>		
+					<li role="presentation"><a href="/ds1820.html">DS1820</a></li>		
+					<li role="presentation"><a href="/volts.html">Volts</a></li>											
+				</ul>
+			</nav>  
+		</div>
+		<br><br>
+			<h3 >jmObjean ESP8266</h3>
+			<h4 >Ligne de commande</h4>
+			<input style="color:#00001f; background-color:#a0a0a0" id="commande" size="30">
+			<h3 >Réponse</h3>
+			<div style="color:lightslategray" id="output"></div>
+			<h3 >ADC</h3>
+			<div style="color:lightslategray" id="adc"></div>
+			<h3 >BME280</h3>
+			<div style="color:lightslategray" id="bme"></div>
+			<h3>DHT22</h3>
+			<div style="color:lightslategray" id="dht22"></div>
+			<h3 >DS1820</h3>
+			<div style="color:lightslategray" id="ds1820"></div>			
+			<br>
+			<footer>
+				<p>&copy; profjmer@gmail.com 2022</p>
+			</footer>
+	</div> 	
+</body>
+</html>
